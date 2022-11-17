@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, Form } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 import axios from 'axios';
 import { useHistory } from 'react-router';
 
 export default function Create() {
     let history = useHistory();
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [checkbox, setCheckbox] = useState(false);
-    console.log(checkbox)
+    const [FirstName, setFirstName] = useState('');
+    const [LastName, setLastName] = useState('');
+    const [Email, setEmail] = useState('');
     const postData = () => {
-        axios.post(`https://60fbca4591156a0017b4c8a7.mockapi.io/fakeData`, {
-            firstName,
-            lastName,
-            checkbox
+        axios.post(`${process.env.REACT_APP_ENDPOINT}/crud/student`, {
+            FirstName,
+            LastName,
+            Email
         }).then(() => {
             history.push('/read')
         })
@@ -30,7 +29,8 @@ export default function Create() {
                     <input placeholder='Last Name' onChange={(e) => setLastName(e.target.value)}/>
                 </Form.Field>
                 <Form.Field>
-                    <Checkbox label='I agree to the Terms and Conditions' onChange={(e) => setCheckbox(!checkbox)}/>
+                    <label>Email</label>
+                    <input placeholder='Email' onChange={(e) => setEmail(e.target.value)}/>
                 </Form.Field>
                 <Button onClick={postData} type='submit'>Submit</Button>
             </Form>
