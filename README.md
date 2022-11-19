@@ -1,6 +1,12 @@
 # Getting Started with Create React App
 
+This project was forked from [React-CRUD-Operation-V2](https://github.com/nishant-666/React-CRUD-Operation-V2)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+The backened API can be built from [sam-app-go](https://github.com/ssdSSF/sam-app-go).
+
+The REST endpoint that it's making is against `http://127.0.0.1:3001` ([.env.development](https://github.com/ssdSSF/React-CRUD-Operation-V2/blob/master/.env.development)).
 
 ## Available Scripts
 
